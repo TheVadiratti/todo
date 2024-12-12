@@ -17,7 +17,7 @@ const todosSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action: PayloadAction<AddTodoPayload>) => {
-      state.list.push({
+      state.list.unshift({
         // eslint-disable-next-line no-underscore-dangle
         id: action.payload._id ? action.payload._id : 0,
         title: action.payload.title,
