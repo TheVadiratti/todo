@@ -1,8 +1,13 @@
-import todosSlice, { addTodo, type TodosSliceState } from './slice';
+import todosSlice, {
+  addTodo,
+  changeTodoStatusById,
+  type TodosSliceState,
+} from './slice';
 import { calculateTodoIdMiddleware } from './middleware';
-import type { Todo, TodoStatus } from './types';
+import type { Todo } from './types';
+import { TodoStatus } from './types';
 
 export default todosSlice;
 
-export { addTodo, calculateTodoIdMiddleware };
-export type { TodosSliceState, Todo, TodoStatus };
+export { addTodo, changeTodoStatusById, calculateTodoIdMiddleware, TodoStatus };
+export type { TodosSliceState, Todo };

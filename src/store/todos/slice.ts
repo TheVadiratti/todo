@@ -24,8 +24,26 @@ const todosSlice = createSlice({
         status: TodoStatus.ACTIVE,
       });
     },
+
+    changeTodoStatusById: (
+      state,
+      action: PayloadAction<Pick<Todo, 'id' | 'status'>>
+    ) => {
+      return {
+        ...state,
+        list: state.list.map((todo) => {
+          if (todo.id === action.payload.id) {
+            return {
+              ...todo,
+              status: action.payload.status,
+            };
+          }
+          return todo;
+        }),
+      };
+    },
   },
 });
 
-export const { addTodo } = todosSlice.actions;
+export const { addTodo, changeTodoStatusById } = todosSlice.actions;
 export default todosSlice;
