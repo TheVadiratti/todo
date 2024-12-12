@@ -5,15 +5,18 @@ import todosSlice from './slice';
 import type { AddTodoPayload } from './types';
 
 export const calculateTodoIdMiddleware: Middleware =
-  (store) => (next) => (action) => {
+  () => (next) => (action) => {
     const { type } = action as PayloadAction;
-    if (type === todosSlice.actions.addTodo.name) {
+    if (type === todosSlice.actions.addTodo.type) {
       const { payload } = action as PayloadAction<AddTodoPayload>;
-      const id = Date.now();
-      store.dispatch({
-        type: todosSlice.actions.addTodo.name,
-        payload: { title: payload, _id: id },
-      });
+      // eslint-disable-next-line no-underscore-dangle
+      if (!payload._id) {
+        const id = Date.now();
+        return next({
+          ...(action as PayloadAction<AddTodoPayload>),
+          payload: { ...payload, _id: id },
+        });
+      }
     }
     return next(action);
   };
