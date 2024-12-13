@@ -11,7 +11,7 @@ interface Props {
     title: string;
   };
   isCompleted?: boolean;
-  onCompleteButtonClick?: () => void;
+  onStatusButtonClick?: () => void;
 }
 
 const Container = styled(Stack)<StackProps>(({ theme }) => ({
@@ -21,21 +21,21 @@ const Container = styled(Stack)<StackProps>(({ theme }) => ({
     borderBottom: 'none',
   },
 }));
-const CompleteButton = styled(IconButton)<IconButtonProps>(() => ({}));
+const StatusButton = styled(IconButton)<IconButtonProps>(() => ({}));
 
 export default function TodoListItem({
   data,
   isCompleted = false,
-  onCompleteButtonClick,
+  onStatusButtonClick,
 }: Props) {
   return (
     <Container component="li" direction="row" spacing={1} alignItems="center">
-      <CompleteButton
-        onClick={onCompleteButtonClick}
+      <StatusButton
+        onClick={onStatusButtonClick}
         aria-label={`Mark todo "${data.title}" as ${isCompleted ? TodoStatus.ACTIVE : TodoStatus.COMPLETED}`}
       >
         {isCompleted ? <CheckCircleIcon /> : <RadioButtonUncheckedIcon />}
-      </CompleteButton>
+      </StatusButton>
       <Typography
         sx={{
           textDecoration: isCompleted ? 'line-through' : 'none',

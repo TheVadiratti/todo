@@ -127,7 +127,7 @@ function App() {
               <TodoListItem
                 data={{ title: todo.title }}
                 isCompleted={todo.status === TodoStatus.COMPLETED}
-                onCompleteButtonClick={changeTodoStatusHandler(
+                onStatusButtonClick={changeTodoStatusHandler(
                   todo.id,
                   todo.status
                 )}
