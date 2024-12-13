@@ -1,6 +1,6 @@
 # Проект "Todo List".
 
-Демо на Vercel: [https://smartway-test-halgscfbc-thevadirattiyahoocoms-projects.vercel.app](https://todo-snowy-rho.vercel.app/)
+Демо на Vercel: https://todo-snowy-rho.vercel.app/
 
 ### 1. Использованные библиотеки:
 - **React** для всего;
