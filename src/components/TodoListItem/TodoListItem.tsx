@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import IconButton, { type IconButtonProps } from '@mui/material/IconButton';
+import { TodoStatus } from '../../store/todos';
 
 interface Props {
   data: {
@@ -29,7 +30,10 @@ export default function TodoListItem({
 }: Props) {
   return (
     <Container component="li" direction="row" spacing={1} alignItems="center">
-      <CompleteButton onClick={onCompleteButtonClick}>
+      <CompleteButton
+        onClick={onCompleteButtonClick}
+        aria-label={`Mark todo "${data.title}" as ${isCompleted ? TodoStatus.ACTIVE : TodoStatus.COMPLETED}`}
+      >
         {isCompleted ? <CheckCircleIcon /> : <RadioButtonUncheckedIcon />}
       </CompleteButton>
       <Typography

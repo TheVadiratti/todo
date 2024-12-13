@@ -68,6 +68,7 @@ export default function CreateTodoForm() {
           },
         }}
         placeholder="What needs to be done?"
+        aria-label="Create todo"
         error={!!formState.errors.todoTitle}
         autoFocus
         autoComplete="off"
