@@ -20,6 +20,10 @@ const TodoTitleField = styled(TextField)<TextFieldProps>(() => ({
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
   },
+
+  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
+  },
 }));
 
 const MAX_TODO_TITLE_LENGTH = 20;
@@ -65,6 +69,8 @@ export default function CreateTodoForm() {
         }}
         placeholder="What needs to be done?"
         error={!!formState.errors.todoTitle}
+        autoFocus
+        autoComplete="off"
         fullWidth
       />
     </Form>

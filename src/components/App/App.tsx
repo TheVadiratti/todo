@@ -120,17 +120,21 @@ function App() {
       <Interface elevation={4}>
         <CreateTodoForm />
         <TodoList component="ul">
-          {filteredTodoList.map((todo) => (
-            <TodoListItem
-              data={{ title: todo.title }}
-              isCompleted={todo.status === TodoStatus.COMPLETED}
-              onCompleteButtonClick={changeTodoStatusHandler(
-                todo.id,
-                todo.status
-              )}
-              key={todo.id}
-            />
-          ))}
+          {filteredTodoList.length ? (
+            filteredTodoList.map((todo) => (
+              <TodoListItem
+                data={{ title: todo.title }}
+                isCompleted={todo.status === TodoStatus.COMPLETED}
+                onCompleteButtonClick={changeTodoStatusHandler(
+                  todo.id,
+                  todo.status
+                )}
+                key={todo.id}
+              />
+            ))
+          ) : (
+            <Typography align="center">List is empty.</Typography>
+          )}
         </TodoList>
         <Divider />
         <TodoListActions>
