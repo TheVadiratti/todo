@@ -53,6 +53,7 @@ const TodoList = styled(CardContent)<CardContentProps>(() => ({
   margin: 0,
   flexGrow: 1,
   overflowY: 'auto',
+  paddingLeft: '8px',
 }));
 
 const TodoListActions = styled(CardActions)<CardActionsProps>(() => ({
@@ -149,7 +150,12 @@ function App() {
             <FilterButton value={TodoStatus.ACTIVE}>Active</FilterButton>
             <FilterButton value={TodoStatus.COMPLETED}>Completed</FilterButton>
           </ToggleButtonGroup>
-          <ClearCompletedButton onClick={clearCompletedTodoHandler}>
+          <ClearCompletedButton
+            onClick={clearCompletedTodoHandler}
+            disabled={todoList.every(
+              (todo) => todo.status === TodoStatus.ACTIVE
+            )}
+          >
             Clear completed
           </ClearCompletedButton>
         </TodoListActions>

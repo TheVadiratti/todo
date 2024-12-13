@@ -20,9 +20,7 @@ const Container = styled(Stack)<StackProps>(({ theme }) => ({
     borderBottom: 'none',
   },
 }));
-const CompleteButton = styled(IconButton)<IconButtonProps>(() => ({
-  paddingLeft: 0,
-}));
+const CompleteButton = styled(IconButton)<IconButtonProps>(() => ({}));
 
 export default function TodoListItem({
   data,
