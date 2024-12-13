@@ -42,8 +42,16 @@ const todosSlice = createSlice({
         }),
       };
     },
+
+    clearCompletedTodo: (state) => {
+      return {
+        ...state,
+        list: state.list.filter((todo) => todo.status !== TodoStatus.COMPLETED),
+      };
+    },
   },
 });
 
-export const { addTodo, changeTodoStatusById } = todosSlice.actions;
+export const { addTodo, changeTodoStatusById, clearCompletedTodo } =
+  todosSlice.actions;
 export default todosSlice;

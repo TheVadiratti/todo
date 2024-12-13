@@ -1,5 +1,5 @@
 import Box, { type BoxProps } from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import TextField, { type TextFieldProps } from '@mui/material/TextField';
 import { styled } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
@@ -13,6 +13,13 @@ interface FormValues {
 
 const Form = styled(Box)<BoxProps>(() => ({
   width: '100%',
+}));
+
+const TodoTitleField = styled(TextField)<TextFieldProps>(() => ({
+  '& .MuiOutlinedInput-root': {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
 }));
 
 const MAX_TODO_TITLE_LENGTH = 20;
@@ -44,7 +51,7 @@ export default function CreateTodoForm() {
 
   return (
     <Form component="form" onSubmit={submitHandler}>
-      <TextField
+      <TodoTitleField
         slotProps={{
           input: {
             ...register('todoTitle', {

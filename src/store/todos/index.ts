@@ -1,6 +1,7 @@
 import todosSlice, {
   addTodo,
   changeTodoStatusById,
+  clearCompletedTodo,
   type TodosSliceState,
 } from './slice';
 import { calculateTodoIdMiddleware } from './middleware';
@@ -9,5 +10,11 @@ import { TodoStatus } from './types';
 
 export default todosSlice;
 
-export { addTodo, changeTodoStatusById, calculateTodoIdMiddleware, TodoStatus };
+export {
+  addTodo,
+  changeTodoStatusById,
+  clearCompletedTodo,
+  calculateTodoIdMiddleware,
+  TodoStatus,
+};
 export type { TodosSliceState, Todo };
