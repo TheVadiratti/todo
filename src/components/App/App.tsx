@@ -19,6 +19,7 @@ import {
   type Todo,
   TodoStatus,
 } from '../../store/todos';
+import Styles from './App.module.css';
 
 type FiltersByStatus = 'all' | TodoStatus;
 
@@ -114,7 +115,7 @@ function App() {
 
   return (
     <AppContainer component="main">
-      <AppHeading component="h1" variant="h2">
+      <AppHeading component="h1" variant="h2" className={Styles.logo}>
         todos
       </AppHeading>
 
